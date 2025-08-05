@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .calculator{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+            width: 400px;
+            margin:5% 40%;
+            height: 500px;
+            font-size: 30px;
+        }
+        #input{
+            grid-column: 1/-1;
+            font-size: 30px;
+        }
+        button{
+            font-size: 25px;
+        }
+        #i{
+            grid-column: 3/-1;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="input">
+        <button>AC</button>
+        <button>DEL</button>
+        <button>*</button>
+        <button>/</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>+</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>-</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>00</button>
+        <button>0</button>
+        <button>.</button>
+        <button id="i">=</button>
+
+   </div>
+</body>
+<script>
+    let input=document.querySelector("#input");
+    let btns=document.querySelectorAll('button');
+    btns.forEach((btn)=>{
+        btn.addEventListener('click',()=>{
+            if (btn.innerHTML==='AC') {
+                input.value='';
+            }else if(btn.innerHTML==='DEL'){
+                input.value=input.value.slice(0,-1);
+
+                }else if(btn.innerHTML==='='){
+                        input.value=eval(input.value)
+                }else{
+                    input.value+=btn.innerHTML;
+                }
+        })
+    })
+</script>
+</html>
