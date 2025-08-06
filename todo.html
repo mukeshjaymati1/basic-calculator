@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+        input{
+            margin-left: 100px;
+            padding: 20px;
+        }
+        input{
+            width: 400px;
+            font-size: 30px;
+        }
+        button{
+            padding-top: 20px;
+            padding-bottom: 20px;
+            width: 80px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <center>
+        <h1>Todo-List</h1>
+    </center>
+    <input type="text">
+    <button>write</button>
+    <ol>
+
+    </ol>
+</body>
+<script>
+    let input=document.querySelector('input');
+    let button=document.querySelector('button');
+    let ol=document.querySelector('ol');
+    button.addEventListener('click',()=>{
+        let span=document.createElement('span');
+        let li=document.createElement('li');
+        li.innerHTML=input.value;
+        ol.appendChild(li)
+        li.append(span)
+        span.innerHTML='X';
+        li.style.padding='6px'
+        span.style.padding='30px'
+        span.addEventListener('click',()=>{
+            li.remove()
+        })
+        input.value=''
+
+
+    })
+</script>
+</html>
